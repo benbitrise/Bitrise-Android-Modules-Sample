@@ -31,6 +31,13 @@ android {
     }
 }
 
+tasks.register("printCommit") {
+    doLast {
+        String gitRev = 'git rev-list --count HEAD'.execute([], project.rootDir).text
+        println gitRev
+    }
+}
+
 dependencies {
     implementation project(":lib-example")
     implementation project(":feature:example1")
