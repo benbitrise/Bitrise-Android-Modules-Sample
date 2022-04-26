@@ -24,8 +24,10 @@ allprojects {
 
 tasks.register("printCommit") {
     doLast {
+        println "before"
         String gitRev = 'git rev-list --count HEAD'.execute([], project.rootDir).text
         println gitRev
+        println "after"
     }
 }
 
